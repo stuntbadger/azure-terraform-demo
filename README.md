@@ -1,5 +1,5 @@
 # azure-terraform-demo
-quick demo into Terraform running on Azure 
+Quick demo into Terraform running on Azure 
 
 **Prerequisites**
 
