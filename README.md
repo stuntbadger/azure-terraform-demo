@@ -57,3 +57,9 @@ Install.
 
 ```$ sudo yum -y install terraform```
 
+
+**Authenticate using the Azure CLI**
+
+Terraform must authenticate to Azure to create infrastructure
+
+```az login  ```
