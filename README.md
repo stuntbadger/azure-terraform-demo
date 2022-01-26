@@ -20,9 +20,11 @@ Powershell
 ```$ brew update && brew install azure-cli```
 
 **linux**
+
 taken from https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=dnf
 
 **RHEL/YUM** 
+
 Import the Microsoft repository key.
 
 ```sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc```
