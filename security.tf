@@ -1,9 +1,9 @@
-# Create Security Group to access web
+# Create Security Group for the VM
 resource "azurerm_network_security_group" "web-vm-nsg" {
   depends_on=[azurerm_resource_group.rg]
 
-  name                = "web-tier-nsg"
-  location            = "ukwest"
+  name                = var.Network_security_group_name
+  location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
 
   security_rule {
@@ -32,7 +32,7 @@ resource "azurerm_network_security_group" "web-vm-nsg" {
     destination_address_prefix = "*"
   }
   tags = {
-    environment = "dev"
+    environment = var.Tags_enviroment
   }
 }
 
