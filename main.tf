@@ -19,10 +19,9 @@ provider "azurerm" {
   skip_provider_registration = true
 }
 
-
 # Create a resource group for network
 resource "azurerm_resource_group" "rg" {
-  name     = "UK-Linux-Team-rg"
-  location = "ukwest"
+  name     = var.resource_group_name
+  location = var.location
 }
 
