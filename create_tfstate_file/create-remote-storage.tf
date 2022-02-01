@@ -31,7 +31,7 @@ resource "azurerm_storage_account" "tfstate" {
   allow_blob_public_access = true
 
   tags = {
-    environment = "dev"
+    environment = "Dev Terraform Build"
   }
 }
 
