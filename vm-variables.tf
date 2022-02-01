@@ -1,25 +1,37 @@
-# Azure virtual machine storage settings #
-
-variable "web_delete_os_disk_on_termination" {
-  type        = string
-  description = "Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed?"
-  default     = "true"  # Update for your environment
+variable "web_vm_size" {
+  default = "Standard_B1s"  
+}
+variable "web_vm_username" {
+  default = "azureuser"
 }
 
-variable "web_delete_data_disks_on_termination" {
-  description = "Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed?"
-  type        = string
-  default     = "true" # Update for your environment
+variable "web_hostname" {
+  default = "webserver1.local"  
 }
+variable "vm_web_name" {
+  default ="RHEL8_web"
+}
+#variable "web_vm_image" {
+#  type        = map(string)
+#  description = "Virtual machine source image information"
+#  default     = {
+#  offer     = "Oracle-Linux"
+#  publisher = "Oracle"
+#  sku       = "ol85-lvm" 
+#  version   = "latest"
+#  }
+#}
 
+# to find the vm information you can run the following command 
+# az vm image list --publisher redhat --all --output tabl
+#
 variable "web_vm_image" {
   type        = map(string)
   description = "Virtual machine source image information"
   default     = {
-  publisher = "Oracle"
-  offer     = "Oracle-Linux"
-  sku       = "ol85-lvm" 
+  publisher = "RedHat"
+  offer     = "RHEL"
+  sku       = "8-lvm-gen2" 
   version   = "latest"
   }
 }
-
