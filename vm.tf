@@ -1,17 +1,17 @@
-# Create the VM Rhel web server 
 resource "azurerm_linux_virtual_machine" "web_vm" {
-  depends_on=[azurerm_network_interface.web-private-nic, azurerm_public_ip.publicip]
+  depends_on          = [azurerm_network_interface.web-private-nic, azurerm_public_ip.publicip]
   name                = var.vm_web_name
   resource_group_name = azurerm_resource_group.rg.name
   location            = var.location
   size                = var.web_vm_size
   admin_username      = var.web_vm_username
-  computer_name = var.web_hostname
- 
+  computer_name       = var.web_hostname
+  custom_data = base64encode(data.template_cloudinit_config.cloudinit.rendered)
+
   network_interface_ids = [
     azurerm_network_interface.web-private-nic.id,
   ]
-  
+
   admin_ssh_key {
     username   = "azureuser"
     public_key = file("~/.ssh/id_rsa.pub")
@@ -26,5 +26,5 @@ resource "azurerm_linux_virtual_machine" "web_vm" {
     sku       = lookup(var.web_vm_image, "sku", null)
     version   = lookup(var.web_vm_image, "version", null)
   }
+  
 }
-
