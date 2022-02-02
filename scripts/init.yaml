@@ -1,0 +1,10 @@
+#cloud-config
+packages:
+  - httpd
+runcmd:
+  - /usr/bin/systemctl enable httpd 
+  - /usr/bin/systemctl start httpd 
+  - /usr/bin/systemctl stop firewalld
+  - /usr/bin/systemctl disable firewalld
+ssh_authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1hTDGaVPA/+YePSFaVnPrEU3TVQREt8vlOXxJ6Ry4IxyS0+L2t62MlL1oD5WernUDMx6CeLAVWGeMgpQPmW32Wd89omLzMkA2n+Td8oicMxzws/gABnBubggYox3fnHcgy9RY8qpK2s0Nn9vyhNBLb18jQ6AvT7Gs7gBBBLyrF7mxBYAS0+JMtOpf2JeN1yNGmrAnS+xPXK6kKrQF7div6UYBgudtZSBLPdoZEE3n49JsaXfomgOjiH8u8aMFrg7qF2BXg1li1UziK8aczsvu4qVDi6Bg5UbLJyMyxi2+UVxPvOBhPH0aeW2CB0IHwKfB8ZkfAXyL7fCNd7HiMyet7hp6A0Waf+CqQiT17mgQSdMkJGNoPion4aledxgOlePw9EnfT/iT0Rwk00CsXmyQNphEWQnq1LgBaM7t0u7kRS9WrBhL80qRYLr1sSeFCKQfnbjd5Yk2Ssynd684Ka15j6a1wSZmmyNytQT4Wc2n0rngJjZhVCK8SMyFUGrYbRs=
