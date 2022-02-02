@@ -7,7 +7,7 @@ variable "location" {
 }
 
 variable "virtual_network" {
-  default = "web-tier"  
+  default = "web-tier"
 }
 variable "public_ip" {
   default = "PublicIP"
@@ -25,6 +25,6 @@ variable "Network_security_group_name" {
 }
 
 variable "Tags_enviroment" {
-  type = string
+  type    = string
   default = "Dev Terraform Build"
 }
