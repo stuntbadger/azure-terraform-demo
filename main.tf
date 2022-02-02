@@ -5,12 +5,12 @@ terraform {
       version = ">= 2.94.0"
     }
   }
- required_version = ">= 0.14.9"
+  required_version = ">= 0.14.9"
   backend "azurerm" {
-      resource_group_name  = "tfstate"
-      storage_account_name = "tfstatevzzap"
-      container_name       = "tfstate"
-      key                  = "terraform.tfstate"
+    resource_group_name  = "tfstate"
+    storage_account_name = "tfstatevzzap"
+    container_name       = "tfstate"
+    key                  = "terraform.tfstate"
   }
 }
 
@@ -24,4 +24,3 @@ resource "azurerm_resource_group" "rg" {
   name     = var.resource_group_name
   location = var.location
 }
-
